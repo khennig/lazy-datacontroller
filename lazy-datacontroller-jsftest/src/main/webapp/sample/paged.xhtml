@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/page.xhtml">
+	<ui:define name="title">
+		<h:outputText value="Sample Paged Data Controller" />
+	</ui:define>
+
+	<ui:define name="content">
+		<h:messages globalOnly="true" />
+
+		<h:form id="form">
+			<p:focus for="tabs:name" />
+			<p:tabView id="tabs" activeIndex="1">
+				<p:tab title="New Record">
+					<h:panelGrid columns="3" style="border-spacing: 0.4em;">
+						<h:outputLabel for="name" value="Name" />
+						<h:inputText id="name" value="#{pagedBacking.sample.name}" />
+						<h:message for="name" styleClass="message" />
+
+						<h:outputLabel for="age" value="age" />
+						<h:inputText id="age" value="#{pagedBacking.sample.age}" />
+						<h:message for="age" styleClass="message" />
+
+						<f:facet name="footer">
+							<h:commandButton value="Store"
+								action="#{pagedBacking.storeSample}" class="default_btn" />
+						</f:facet>
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="Search">
+					<h:panelGrid columns="3" style="border-spacing: 0.4em;">
+						<h:outputLabel for="nameFilter" value="Name" />
+						<h:inputText id="nameFilter"
+							value="#{pagedBacking.sampleIndex.name}"
+							valueChangeListener="#{pagedBacking.sampleIndex.filterValueChangeListener}">
+							<f:ajax event="keyup"
+								render=":form:sampleIndex :form:sampleDetail" />
+						</h:inputText>
+						<h:message for="nameFilter" styleClass="message" />
+					</h:panelGrid>
+				</p:tab>
+			</p:tabView>
+
+			<p:dataTable id="sampleIndex"
+				value="#{pagedBacking.sampleIndex.adapter}" var="_sample"
+				style="margin-top: 2em;" lazy="true" rows="2" paginator="true"
+				paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+				rowsPerPageTemplate="2,5,10,15"
+				first="#{pagedBacking.sampleIndex.adapter.first}"
+				currentPageReportTemplate="{totalRecords} Record(s), Page {currentPage} of {totalPages}"
+				sortMode="multiple" selectionMode="multiple"
+				selection="#{pagedBacking.sampleIndex.adapter.multiSelection}"
+				sortBy="#{pagedBacking.sampleIndex.adapter.multiSortBy}"
+				paginatorPosition="top">
+
+				<p:ajax event="rowSelect" update=":form:sampleDetail" />
+				<p:ajax event="rowUnselect" update=":form:sampleDetail" />
+				<p:ajax event="filter" update=":form:sampleDetail" />
+				<p:ajax event="sort" update=":form:sampleDetail" />
+
+				<p:column filterBy="#{_sample.name}" sortBy="#{_sample.name}">
+					<f:facet name="header">
+						<h:outputText value="Name" />
+					</f:facet>
+					<h:outputText value="#{_sample.name}" />
+				</p:column>
+
+				<p:column filterBy="#{_sample.age}" sortBy="#{_sample.age}">
+					<f:facet name="header">
+						<h:outputText value="Age" />
+					</f:facet>
+					<h:outputText value="#{_sample.age}" />
+				</p:column>
+			</p:dataTable>
+
+			<p:spacer height="20" />
+
+			<p:panel id="sampleDetail" header="Selected Sample">
+				<h:panelGrid columns="2"
+					rendered="#{pagedBacking.sampleDetail.data != null}">
+					<h:outputLabel value="Name:" />
+					<h:outputText value="#{pagedBacking.sampleDetail.data.name}" />
+
+					<h:outputLabel value="Age:" />
+					<h:outputText value="#{pagedBacking.sampleDetail.data.age}" />
+				</h:panelGrid>
+				<h:outputText value="-"
+					rendered="#{pagedBacking.sampleDetail.data == null}" />
+
+				<f:facet name="footer">
+					<f:ajax render="sampleIndex sampleDetail">
+						<h:commandButton value="First"
+							disabled="#{pagedBacking.sampleIndex.size == 0}"
+							action="#{pagedBacking.sampleIndex.first()}" />
+						<h:commandButton value="Previous"
+							disabled="#{!pagedBacking.sampleIndex.hasPrevious()}"
+							action="#{pagedBacking.sampleIndex.previous()}" />
+						<h:commandButton value="Next"
+							disabled="#{!pagedBacking.sampleIndex.hasNext()}"
+							action="#{pagedBacking.sampleIndex.next()}" />
+						<h:commandButton value="Last"
+							disabled="#{pagedBacking.sampleIndex.size == 0}"
+							action="#{pagedBacking.sampleIndex.last()}" />
+					</f:ajax>
+				</f:facet>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

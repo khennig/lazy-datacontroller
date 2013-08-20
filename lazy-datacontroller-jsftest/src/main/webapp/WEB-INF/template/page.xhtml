@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<f:view contentType="text/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:insert name="meta" />
+	<h:head>
+		<ui:insert name="prescript" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css"
+			href="#{request.contextPath}/resources/css/default.css" />
+		<link rel="stylesheet" type="text/css"
+			href="#{request.contextPath}/resources/css/override/primefaces.css" />
+		<title><ui:insert name="title" /></title>
+	</h:head>
+	<h:body>
+		<p:messages globalOnly="true" />
+		<ui:insert name="content" />
+	</h:body>
+	<ui:insert name="postscript" />
+</f:view>
+</html>
