@@ -9,7 +9,7 @@
 	<packaging>pom</packaging>
 
 	<name>TRI Lazy Data Controller</name>
-	<description>TRI Lazy Data Controller Framework</description>
+	<description>Data Controller framework with support for lazy loading, pagination, single- and multi-selection and observer pattern.</description>
 
 	<licenses>
 		<license>
