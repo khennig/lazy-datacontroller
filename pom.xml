@@ -71,6 +71,8 @@
 		</pluginManagement>
 	</build>
 
-	<!-- Locale repositories: MAVEN_HOME/conf/settings.xml -->
-
+	<scm>
+		<connection>scm:git:git@github.com:khennig/lazy-datacontroller.git</connection>
+		<developerConnection>scm:git:git@github.com:khennig/lazy-datacontroller.git</developerConnection>
+	</scm>
 </project>
