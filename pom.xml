@@ -7,16 +7,24 @@
 	<artifactId>lazy-datacontroller</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	
+
 	<name>TRI Lazy Data Controller</name>
 	<description>TRI Lazy Data Controller Framework</description>
+
+	<licenses>
+		<license>
+			<name>The MIT License (MIT)</name>
+			<url>https://github.com/khennig/lazy-datacontroller/blob/master/LICENSE</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<primefaces.version>3.5</primefaces.version>
 	</properties>
-	
+
 	<organization>
 		<name>TRI Systems</name>
 		<url>http://tri-systems.com</url>
