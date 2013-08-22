@@ -92,7 +92,8 @@ public class PrimeFacesLazyAdapter<K, V> extends LazyDataModel<V> {
 
 	/**
 	 * If set to true adapter calls {@link PagedListDataController#notify(TYPE)}
-	 * with {@link ChangeEvent.TYPE#DATA} on sort order changes.
+	 * with {@link ChangeEvent.TYPE#DATA} on sort order changes. Default is
+	 * {@code false}.
 	 */
 	public PrimeFacesLazyAdapter<K, V> setNotifyOnSortOrderChanges(
 			boolean notifyOnSortOrderChanges) {
@@ -102,7 +103,8 @@ public class PrimeFacesLazyAdapter<K, V> extends LazyDataModel<V> {
 
 	/**
 	 * If set to true adapter calls {@link PagedListDataController#notify(TYPE)}
-	 * with {@link ChangeEvent.TYPE#DATA} on sort order changes.
+	 * with {@link ChangeEvent.TYPE#DATA} on sort order changes. Default is
+	 * {@code false}
 	 */
 	public PrimeFacesLazyAdapter<K, V> setClearSelectionOnFilterChanges(
 			boolean clearSelectionOnFilterChanges) {
