@@ -179,6 +179,16 @@ public abstract class ListDataController<K, V> extends DataController<List<V>>
 	}
 
 	/**
+	 * Returns the absolute index of the current single selection, or -1 if
+	 * there is no selection or there are multiple selections.
+	 * 
+	 * @return absolute index of current single selection, zero based
+	 */
+	public int getSelectionIndex() {
+		return selectionIndex;
+	}
+
+	/**
 	 * Returns the index of the first occurrence of the specified value in this
 	 * controller, or -1 if this controller does not contain the value.
 	 * 
