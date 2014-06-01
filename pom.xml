@@ -102,7 +102,7 @@
 
 	<scm>
 		<url>https://github.com/khennig/lazy-datacontroller</url>
-		<connection>scm:git:https://github.com/khennig/lazy-datacontroller.git</connection>
+		<connection>scm:git:git@github.com:khennig/lazy-datacontroller.git</connection>
 		<developerConnection>scm:git:git@github.com:khennig/lazy-datacontroller.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
