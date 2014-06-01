@@ -18,6 +18,8 @@ public interface Observable {
 	/**
 	 * Removes an observer from the list of observers of this object.
 	 * 
+	 * @param observer
+	 *            observer to be removed
 	 * @throws NullPointerException
 	 *             if parameter observer is null
 	 * @throws IllegalArgumentException

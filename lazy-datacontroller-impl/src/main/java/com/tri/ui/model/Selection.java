@@ -23,7 +23,7 @@ public interface Selection<K, V> {
 	/**
 	 * <p>
 	 * Returns the value for given key. Default implementation looks for value
-	 * in caches, see {@link #findChachedValueOf(Object)}.
+	 * in cached data.
 	 * </p>
 	 * <p>
 	 * {@link #getKeyOf(Object)} must be implemented to use the default
@@ -50,7 +50,7 @@ public interface Selection<K, V> {
 	 *            index of the element to return
 	 * @return the element at the specified position in this selection list
 	 * @throws IndexOutOfBoundsException
-	 *             if the index is out of range (index < 0 || index >=
+	 *             if the index is out of range (index &lt; 0 || index &gt;=
 	 *             {@link #getSelectionSize()})
 	 */
 	public V getSelectionValue(int index);

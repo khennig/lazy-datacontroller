@@ -101,7 +101,7 @@ public interface Pagination {
 	 * @param pageSize
 	 *            number of items to be displayed on a page
 	 * @throws IllegalArgumentException
-	 *             if page size is <= 0
+	 *             if page size is &lt;= 0
 	 */
 	public void setPageSize(final int pageSize);
 }

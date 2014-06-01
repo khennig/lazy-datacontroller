@@ -226,7 +226,7 @@ public abstract class ListDataController<K, V> extends DataController<List<V>>
 	}
 
 	/**
-	 * Find value in cached data, i.e. in {@link #data} and {@link #selection}.
+	 * Find value in cached data.
 	 * 
 	 * @param key
 	 * @return found value or null if non was found

@@ -1,10 +1,14 @@
 package com.tri.ui.model;
 
+import java.io.Serializable;
+
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-public class SortProperty {
+public class SortProperty implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private String name;
 

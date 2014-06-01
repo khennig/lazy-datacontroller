@@ -1,5 +1,6 @@
 package com.tri.ui.test.infrastructur.persistence;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -16,7 +17,9 @@ import com.tri.ui.test.domain.model.sample.SampleRepository;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.SUPPORTS)
-public class SampleRepositoryJpa implements SampleRepository {
+public class SampleRepositoryJpa implements SampleRepository, Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@PersistenceContext(unitName = "default")
 	EntityManager em;

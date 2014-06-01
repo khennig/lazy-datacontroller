@@ -1,6 +1,6 @@
 package com.tri.ui.model.adapter;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,6 @@ import org.junit.Test;
 
 import com.tri.ui.model.PagedListDataController;
 import com.tri.ui.model.SortProperty;
-import com.tri.ui.model.adapter.PrimeFacesLazyAdapter;
 
 public class PrimeFacesPagedListAdapterTest {
 

@@ -1,15 +1,12 @@
 package com.tri.ui.model;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
-
-import com.tri.ui.model.PagedListDataController;
-import com.tri.ui.model.SortProperty;
 
 public class PagedDataControllerTest {
 

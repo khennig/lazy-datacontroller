@@ -25,7 +25,7 @@ import com.tri.ui.model.utility.BeanProperty;
  * <li>set the {@code p:dataTable} parameters {@code p:dataTable.lazy} to
  * {@code false}</li>
  * <li>{@code p:dataTable.rows} &gt; 0 and</li>
- * <li>implement {@link ListDataController#getKeyOf(V)} (using
+ * <li>implement {@link ListDataController#getKeyOf(Object)} (using
  * {@code p:dataTable.rowKey} is not sufficient for lazy loaded paged data)</li>
  * </ul>
  * 

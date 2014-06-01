@@ -35,7 +35,7 @@ import com.tri.ui.model.utility.BeanProperty;
  * <li>set the {@code p:dataTable} parameters {@code p:dataTable.lazy} to
  * {@code true}</li>
  * <li>{@code p:dataTable.rows} &gt; 0 and</li>
- * <li>implement {@link ListDataController#getKeyOf(V)} (using
+ * <li>implement {@link ListDataController#getKeyOf(Object)} (using
  * {@code p:dataTable.rowKey} is not sufficient for lazy loaded paged data)</li>
  * <li>only Primitive Class filters that have a string representation are
  * supported, the property must have a setter and a getter on the DataController
@@ -49,8 +49,9 @@ import com.tri.ui.model.utility.BeanProperty;
  * @param <V>
  *            value
  */
-@SuppressWarnings("serial")
 public class PrimeFacesLazyAdapter<K, V> extends LazyDataModel<V> {
+
+	private static final long serialVersionUID = 1L;
 
 	private static final String DC_GETROWKEY_METHOD = "getKeyOf";
 
@@ -60,21 +61,22 @@ public class PrimeFacesLazyAdapter<K, V> extends LazyDataModel<V> {
 
 	List<SortProperty> lastSorting = null;
 
+	// TODO: Evaluate: SortMeta is not serializable, is that an issue?
 	List<SortMeta> multiSortBy;
 
 	private final Class<?> getkeyofParameterType;
 
 	/**
 	 * Configuration property, if true, call
-	 * {@link PagedListDataController#notify(TYPE)} with
-	 * {@link ChangeEvent.TYPE#DATA} on sort order changes
+	 * {@link PagedListDataController#notify(ChangeEvent)} with
+	 * {@link ChangeEventType#DATA} on sort order changes
 	 */
 	boolean notifyOnSortOrderChanges = false;
 
 	/**
 	 * Configuration property, if true, call
-	 * {@link PagedListDataController#notify(TYPE)} with
-	 * {@link ChangeEvent.TYPE#SELECTION} on filter changes
+	 * {@link PagedListDataController#notify(ChangeEvent)} with
+	 * {@link ChangeEventType#SELECTION} on filter changes
 	 */
 	boolean clearSelectionOnFilterChanges = false;
 
@@ -91,8 +93,9 @@ public class PrimeFacesLazyAdapter<K, V> extends LazyDataModel<V> {
 	}
 
 	/**
-	 * If set to true adapter calls {@link PagedListDataController#notify(TYPE)}
-	 * with {@link ChangeEvent.TYPE#DATA} on sort order changes. Default is
+	 * If set to true adapter calls
+	 * {@link PagedListDataController#notify(ChangeEvent)} with
+	 * {@link ChangeEventType#DATA} on sort order changes. Default is
 	 * {@code false}.
 	 */
 	public PrimeFacesLazyAdapter<K, V> setNotifyOnSortOrderChanges(
@@ -102,8 +105,9 @@ public class PrimeFacesLazyAdapter<K, V> extends LazyDataModel<V> {
 	}
 
 	/**
-	 * If set to true adapter calls {@link PagedListDataController#notify(TYPE)}
-	 * with {@link ChangeEvent.TYPE#DATA} on sort order changes. Default is
+	 * If set to true adapter calls
+	 * {@link PagedListDataController#notify(ChangeEvent)} with
+	 * {@link ChangeEventType#DATA} on sort order changes. Default is
 	 * {@code false}
 	 */
 	public PrimeFacesLazyAdapter<K, V> setClearSelectionOnFilterChanges(

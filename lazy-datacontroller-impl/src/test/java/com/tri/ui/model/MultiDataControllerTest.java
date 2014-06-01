@@ -1,34 +1,30 @@
 package com.tri.ui.model;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.fest.assertions.Fail;
 import org.junit.Test;
-
-import com.tri.ui.model.ListDataController;
-import com.tri.ui.model.SortProperty;
 
 public class MultiDataControllerTest {
 
-	@Test
-	public void getIndexOf() {
-		// setup: no values
+	@Test(expected = IllegalStateException.class)
+	public void getIndexOfNoValues() {
+		// setup
 		TestMultiDataController dc = new TestMultiDataController(
 				generateTestData(0));
 		// test, check
-		try {
-			dc.getIndexOf(new TestValue(1L));
-			Fail.fail();
-		} catch (IllegalStateException exc) {
-			// expected
-		}
+		dc.getIndexOf(new TestValue(1L));
+	}
 
-		// setup: 60 values
-		dc = new TestMultiDataController(generateTestData(60));
+	@Test
+	public void getIndexOfCertainValues() {
+		// setup
+		TestMultiDataController dc = new TestMultiDataController(
+				generateTestData(60));
 		for (int testData : new int[] { 0, 1, 59 }) {
+			// test, assert
 			assertThat(dc.getIndexOf(dc.getData().get(testData))).isEqualTo(
 					testData);
 		}

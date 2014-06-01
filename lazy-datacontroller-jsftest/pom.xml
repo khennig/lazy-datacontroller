@@ -5,7 +5,7 @@
 
 	<artifactId>lazy-datacontroller-jsftest</artifactId>
 	<packaging>war</packaging>
-	
+
 	<name>TRI Lazy Data Controller - JSF Test</name>
 	<description>Test and sample application</description>
 
@@ -18,7 +18,20 @@
 	<properties>
 		<glassfish.version>3.1.2.2</glassfish.version>
 		<timestamp>${maven.build.timestamp}</timestamp>
+		<primefaces.version>4.0</primefaces.version>
 	</properties>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.2</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 
 	<dependencies>
 		<!-- Project module dependencies -->
@@ -27,7 +40,7 @@
 			<artifactId>lazy-datacontroller-impl</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.tri-systems.ui.ldc</groupId>
 			<artifactId>lazy-datacontroller-pfadapter</artifactId>
@@ -45,11 +58,11 @@
 			<artifactId>bootstrap</artifactId>
 			<version>1.0.10</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.tri-systems.persistence</groupId>
 			<artifactId>jpql-querybuilder</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>1.0.0</version>
 		</dependency>
 
 		<!-- Used by both: compiler and test -->
@@ -76,11 +89,8 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.10</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<!-- Local Repositories: Zu konfigurieren im Parent pom.xml -->
-
 </project>
