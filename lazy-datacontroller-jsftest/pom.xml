@@ -11,7 +11,7 @@
 	<parent>
 		<groupId>com.tri-systems.ui.ldc</groupId>
 		<artifactId>lazy-datacontroller</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 
 	<properties>

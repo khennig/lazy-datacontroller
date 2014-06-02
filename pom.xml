@@ -10,7 +10,7 @@
 
 	<groupId>com.tri-systems.ui.ldc</groupId>
 	<artifactId>lazy-datacontroller</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>TRI Lazy Data Controller</name>
@@ -104,7 +104,7 @@
 		<url>https://github.com/khennig/lazy-datacontroller</url>
 		<connection>scm:git:git@github.com:khennig/lazy-datacontroller.git</connection>
 		<developerConnection>scm:git:git@github.com:khennig/lazy-datacontroller.git</developerConnection>
-		<tag>lazy-datacontroller-1.0.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<developers>
