@@ -36,14 +36,16 @@ Add the following dependency to your pom.xml:/project/dependencies
 <dependency>
     <groupId>com.tri-systems.ui.ldc</groupId>
     <artifactId>lazy-datacontroller-impl</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 <dependency>
     <groupId>com.tri-systems.ui.ldc</groupId>
     <artifactId>lazy-datacontroller-pfadapter</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
+
+Binaries are available at Maven Central.
 
 # License
 [MIT License](http://www.opensource.org/licenses/mit-license.php)
