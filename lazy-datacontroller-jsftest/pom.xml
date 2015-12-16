@@ -18,7 +18,7 @@
 	<properties>
 		<glassfish.version>3.1.2.2</glassfish.version>
 		<timestamp>${maven.build.timestamp}</timestamp>
-		<primefaces.version>4.0</primefaces.version>
+		<primefaces.version>5.3</primefaces.version>
 	</properties>
 
 	<build>
@@ -65,11 +65,10 @@
 			<version>1.0.0</version>
 		</dependency>
 
-		<!-- Used by both: compiler and test -->
 		<dependency>
-			<groupId>org.glassfish.main.extras</groupId>
-			<artifactId>glassfish-embedded-all</artifactId>
-			<version>${glassfish.version}</version>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
 
