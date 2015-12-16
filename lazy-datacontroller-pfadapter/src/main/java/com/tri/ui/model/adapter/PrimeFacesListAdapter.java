@@ -6,12 +6,12 @@ import java.util.Arrays;
 import javax.faces.model.ListDataModel;
 
 import org.apache.commons.beanutils.ConvertUtils;
-import org.apache.commons.lang3.Validate;
 import org.primefaces.model.SelectableDataModel;
 
 import com.tri.ui.model.DataController;
 import com.tri.ui.model.ListDataController;
 import com.tri.ui.model.utility.BeanProperty;
+import com.tri.ui.model.utility.Validate;
 
 /**
  * <p>

@@ -9,7 +9,6 @@ import java.util.Map.Entry;
 
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.Validate;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortMeta;
 import org.primefaces.model.SortOrder;
@@ -22,6 +21,7 @@ import com.tri.ui.model.SortPropertyOrder;
 import com.tri.ui.model.observer.ChangeEvent;
 import com.tri.ui.model.observer.ChangeEventType;
 import com.tri.ui.model.utility.BeanProperty;
+import com.tri.ui.model.utility.Validate;
 
 /**
  * <p>
@@ -57,7 +57,7 @@ public class PrimeFacesLazyAdapter<K, V> extends LazyDataModel<V> {
 
 	final PagedListDataController<K, V> adaptee;
 
-	final HashMap<String, String> lastFilters = new HashMap<String, String>();
+	final HashMap<String, Object> lastFilters = new HashMap<>();
 
 	List<SortProperty> lastSorting = null;
 
@@ -129,7 +129,7 @@ public class PrimeFacesLazyAdapter<K, V> extends LazyDataModel<V> {
 	@Override
 	public List<V> load(final int first, final int pageSize,
 			final String sortField, final SortOrder sortOrder,
-			final Map<String, String> filters) {
+			final Map<String, Object> filters) {
 		// convert single sort property to List<SortMeta>
 		List<SortMeta> multiSortMeta = null;
 		if (sortField != null) {
@@ -146,7 +146,7 @@ public class PrimeFacesLazyAdapter<K, V> extends LazyDataModel<V> {
 	@Override
 	public List<V> load(final int first, final int pageSize,
 			final List<SortMeta> multiSortMeta,
-			final Map<String, String> filters) {
+			final Map<String, Object> filters) {
 
 		final boolean filtersChanged = handleFilters(filters);
 		final boolean sortOrderChanged = handleSortOrder(multiSortMeta);
@@ -180,7 +180,7 @@ public class PrimeFacesLazyAdapter<K, V> extends LazyDataModel<V> {
 	 * @param filters
 	 * @return true if filters have changed to last call
 	 */
-	boolean handleFilters(Map<String, String> filters) {
+	boolean handleFilters(Map<String, Object> filters) {
 		Validate.notNull(filters, "Filters required");
 		boolean changed = false;
 
@@ -193,7 +193,7 @@ public class PrimeFacesLazyAdapter<K, V> extends LazyDataModel<V> {
 		}
 
 		// set changed active filters
-		for (Entry<String, String> entry : filters.entrySet()) {
+		for (Entry<String, Object> entry : filters.entrySet()) {
 			if (!lastFilters.containsKey(entry.getKey())
 					|| !entry.getValue()
 							.equals(lastFilters.get(entry.getKey()))) {
@@ -213,7 +213,7 @@ public class PrimeFacesLazyAdapter<K, V> extends LazyDataModel<V> {
 	 * @param sortOrder
 	 * @return true if sorting has changed to last call
 	 */
-	boolean handleSortOrder(List<SortMeta> sortOrder) {
+	boolean handleSortOrder(final List<SortMeta> sortOrder) {
 		boolean changed = false;
 
 		if (sortOrder == null) {
@@ -266,11 +266,12 @@ public class PrimeFacesLazyAdapter<K, V> extends LazyDataModel<V> {
 	 *             if no conversion possible
 	 */
 	SortPropertyOrder convert2SortPropertyOrder(final SortOrder order) {
-		if (order == SortOrder.ASCENDING) {
+		switch (order) {
+		case ASCENDING:
 			return SortPropertyOrder.ASCENDING;
-		} else if (order == SortOrder.DESCENDING) {
+		case DESCENDING:
 			return SortPropertyOrder.DESCENDING;
-		} else {
+		default:
 			throw new IllegalArgumentException("Unknown SortOrder: " + order);
 		}
 	}
