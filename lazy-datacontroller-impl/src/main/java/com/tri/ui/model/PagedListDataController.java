@@ -2,7 +2,7 @@ package com.tri.ui.model;
 
 import java.util.List;
 
-import org.apache.commons.lang3.Validate;
+import com.tri.ui.model.utility.Validate;
 
 /**
  * <p>

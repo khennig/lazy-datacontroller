@@ -4,12 +4,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.Validate;
-
 import com.tri.ui.model.observer.ChangeEvent;
 import com.tri.ui.model.observer.ChangeEventType;
 import com.tri.ui.model.observer.Observable;
 import com.tri.ui.model.observer.Observer;
+import com.tri.ui.model.utility.Validate;
 
 /**
  * Super class for all data controllers.

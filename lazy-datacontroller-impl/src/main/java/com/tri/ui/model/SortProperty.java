@@ -2,9 +2,7 @@ package com.tri.ui.model;
 
 import java.io.Serializable;
 
-import org.apache.commons.lang3.Validate;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
+import com.tri.ui.model.utility.Validate;
 
 public class SortProperty implements Serializable {
 
@@ -31,20 +29,30 @@ public class SortProperty implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(name).append(order).hashCode();
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((order == null) ? 0 : order.hashCode());
+		return result;
 	}
 
 	@Override
-	public boolean equals(final Object other) {
-		if (this == other) {
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		} else if (other == null || getClass() != other.getClass()) {
+		if (obj == null)
 			return false;
-		}
-
-		final SortProperty cast = (SortProperty) other;
-		return new EqualsBuilder().append(name, cast.getName())
-				.append(order, cast.getOrder()).isEquals();
+		if (getClass() != obj.getClass())
+			return false;
+		SortProperty other = (SortProperty) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (order != other.order)
+			return false;
+		return true;
 	}
 
 	@Override

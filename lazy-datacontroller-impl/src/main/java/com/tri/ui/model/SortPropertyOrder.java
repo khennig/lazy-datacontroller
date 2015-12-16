@@ -1,6 +1,6 @@
 package com.tri.ui.model;
 
-import org.apache.commons.lang3.Validate;
+import com.tri.ui.model.utility.Validate;
 
 public enum SortPropertyOrder {
 	/** Ascending order */

@@ -5,9 +5,9 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.Validate;
 
 import com.tri.ui.model.observer.ChangeEventType;
+import com.tri.ui.model.utility.Validate;
 
 /**
  * <p>

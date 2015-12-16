@@ -3,7 +3,6 @@ package com.tri.ui.model.utility;
 import java.lang.reflect.Method;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.lang3.Validate;
 
 public class BeanProperty {
 
