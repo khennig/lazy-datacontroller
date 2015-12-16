@@ -22,7 +22,7 @@ public class PrimeFacesPagedListAdapterTest {
 				generateTestData(0));
 		PrimeFacesLazyAdapter<Long, TestValue> dca = new PrimeFacesLazyAdapter<Long, TestValue>(
 				dc);
-		Map<String, String> newFilters = new HashMap<String, String>();
+		Map<String, Object> newFilters = new HashMap<>();
 		newFilters.put("filter1", "VALUE_1");
 		// test, check
 		assertThat(dca.handleFilters(newFilters)).isTrue();
@@ -31,7 +31,7 @@ public class PrimeFacesPagedListAdapterTest {
 		assertThat(dc.getFilter1()).isEqualTo("VALUE_1");
 
 		// setup: second filter value added
-		newFilters = new HashMap<String, String>();
+		newFilters = new HashMap<>();
 		newFilters.put("filter1", "VALUE_1");
 		newFilters.put("filter2", "2");
 		// test, check
@@ -43,7 +43,7 @@ public class PrimeFacesPagedListAdapterTest {
 		assertThat(dc.getFilter2()).isEqualTo(2L);
 
 		// setup: filter value changed
-		newFilters = new HashMap<String, String>();
+		newFilters = new HashMap<>();
 		newFilters.put("filter1", "VALUE_1");
 		newFilters.put("filter2", "21");
 		// test, check
@@ -55,7 +55,7 @@ public class PrimeFacesPagedListAdapterTest {
 		assertThat(dc.getFilter2()).isEqualTo(21L);
 
 		// setup: filter value removed
-		newFilters = new HashMap<String, String>();
+		newFilters = new HashMap<>();
 		newFilters.put("filter2", "21");
 		// test, check
 		assertThat(dca.handleFilters(newFilters)).isTrue();
@@ -66,7 +66,7 @@ public class PrimeFacesPagedListAdapterTest {
 		assertThat(dc.getFilter2()).isEqualTo(21L);
 
 		// setup: all filters removed
-		newFilters = new HashMap<String, String>();
+		newFilters = new HashMap<>();
 		// test, check
 		assertThat(dca.handleFilters(newFilters)).isTrue();
 		assertThat(dca.lastFilters).isEmpty();
