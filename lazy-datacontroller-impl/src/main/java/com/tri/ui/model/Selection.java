@@ -18,7 +18,7 @@ public interface Selection<K, V> {
 	 * @param value
 	 * @return value key
 	 */
-	public K getKeyOf(V value);
+	 K getKeyOf(V value);
 
 	/**
 	 * <p>
@@ -34,14 +34,14 @@ public interface Selection<K, V> {
 	 *            value key
 	 * @return found value or null if none was found
 	 */
-	public V getValueOf(K key);
+	 V getValueOf(K key);
 
 	/**
 	 * Returns selection values as list.
 	 * 
 	 * @return list of selected values
 	 */
-	public List<V> getSelection();
+	 List<V> getSelection();
 
 	/**
 	 * Returns the element at the specified position in the selection list.
@@ -53,14 +53,14 @@ public interface Selection<K, V> {
 	 *             if the index is out of range (index &lt; 0 || index &gt;=
 	 *             {@link #getSelectionSize()})
 	 */
-	public V getSelectionValue(int index);
+	 V getSelectionValue(int index);
 
 	/**
 	 * Returns the number of elements in the selection
 	 * 
 	 * @return number of elements in the selection
 	 */
-	public int getSelectionSize();
+	 int getSelectionSize();
 
 	/**
 	 * Adds given value to selection.
@@ -69,7 +69,7 @@ public interface Selection<K, V> {
 	 * @throws NullPointerException
 	 *             if parameter values is null or has a null element
 	 */
-	public void addSelection(final List<V> values);
+	 void addSelection(final List<V> values);
 
 	/**
 	 * Adds given value to selection
@@ -78,21 +78,21 @@ public interface Selection<K, V> {
 	 * @throws NullPointerException
 	 *             if value is null
 	 */
-	public void addSelection(final V value);
+	 void addSelection(final V value);
 
 	/**
 	 * Replaces selection with given values.
 	 * 
 	 * @param values
 	 */
-	public void setSelection(final List<V> values);
+	 void setSelection(final List<V> values);
 
 	/**
 	 * Replaces selection to given value.
 	 * 
 	 * @param value
 	 */
-	public void setSelection(final V value);
+	 void setSelection(final V value);
 
 	/**
 	 * Replaces selection with given one. {@link #setSelection(Object)} updates
@@ -105,13 +105,13 @@ public interface Selection<K, V> {
 	 *            selectionIndex of parameter value, ignored if parameter value
 	 *            is already selected and selection contains only one element.
 	 */
-	public void setSelection(final V value, int selectionIndex);
+	 void setSelection(final V value, int selectionIndex);
 
 	/**
 	 * Clears selection observers should be notified. Does nothing if nothing is
 	 * selected.
 	 */
-	public void clearSelection();
+	 void clearSelection();
 
 	/**
 	 * Selects absolute first element (action method).
@@ -119,7 +119,7 @@ public interface Selection<K, V> {
 	 * @throws IllegalStateException
 	 *             if no element available
 	 */
-	public void first();
+	 void first();
 
 	/**
 	 * Selects absolute last element (action method).
@@ -127,7 +127,7 @@ public interface Selection<K, V> {
 	 * @throws IllegalStateException
 	 *             if no element available
 	 */
-	public void last();
+	 void last();
 
 	/**
 	 * Selects next element from current (single) selection (action method).
@@ -135,7 +135,7 @@ public interface Selection<K, V> {
 	 * @throws IllegalStateException
 	 *             if there is no next element
 	 */
-	public void next();
+	 void next();
 
 	/**
 	 * Selects previous element from current (single) selection (action method).
@@ -143,7 +143,7 @@ public interface Selection<K, V> {
 	 * @throws IllegalStateException
 	 *             if there is no previous element
 	 */
-	public void previous();
+	 void previous();
 
 	/**
 	 * Returns true if there is an element next to the current selection
@@ -151,7 +151,7 @@ public interface Selection<K, V> {
 	 * element, nothing is selected at all or the current selection index can
 	 * not be determined.
 	 */
-	public boolean hasNext();
+	 boolean hasNext();
 
 	/**
 	 * Returns true if there is a previous element to the current selection
@@ -159,5 +159,5 @@ public interface Selection<K, V> {
 	 * element, nothing is selected at all or the current selection index can
 	 * not be determined.
 	 */
-	public boolean hasPrevious();
+	 boolean hasPrevious();
 }

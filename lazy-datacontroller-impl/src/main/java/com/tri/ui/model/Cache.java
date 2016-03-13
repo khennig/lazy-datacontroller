@@ -8,6 +8,6 @@ package com.tri.ui.model;
 public interface Cache {
 
 	/** Clears the cache */
-	public void clearCache();
+	void clearCache();
 
 }

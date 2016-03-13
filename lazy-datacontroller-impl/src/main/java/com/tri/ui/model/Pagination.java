@@ -13,7 +13,7 @@ public interface Pagination {
 	 * @throws IllegalStateException
 	 *             if there is no first page
 	 */
-	public void firstPage();
+	 void firstPage();
 
 	/**
 	 * Goto last page (action method).
@@ -21,7 +21,7 @@ public interface Pagination {
 	 * @throws IllegalStateException
 	 *             if there is no first page
 	 */
-	public void lastPage();
+	 void lastPage();
 
 	/**
 	 * Goto next page (action method).
@@ -29,7 +29,7 @@ public interface Pagination {
 	 * @throws IllegalStateException
 	 *             if there is no next page
 	 */
-	public void nextPage();
+	 void nextPage();
 
 	/**
 	 * Goto previous page (action method).
@@ -37,29 +37,29 @@ public interface Pagination {
 	 * @throws IllegalStateException
 	 *             if there is no previous page
 	 */
-	public void previousPage();
+	 void previousPage();
 
 	/**
 	 * Returns true if a next page exists.
 	 */
-	public boolean hasNextPage();
+	 boolean hasNextPage();
 
 	/**
 	 * Returns true if previous page exists.
 	 */
-	public boolean hasPreviousPage();
+	 boolean hasPreviousPage();
 
 	/**
 	 * Returns number of pages.
 	 * 
 	 * @return number of pages, 0 if no page is available
 	 */
-	public int countPages();
+	 int countPages();
 
 	/**
 	 * Returns the current page, zero based
 	 */
-	public int getPage();
+	 int getPage();
 
 	/**
 	 * Moves to given page (action method).
@@ -71,7 +71,7 @@ public interface Pagination {
 	 * @throws IndexOutOfBoundsException
 	 *             if parameter page is not within [0, page count[
 	 */
-	public void gotoPage(final int page);
+	 void gotoPage(final int page);
 
 	/**
 	 * Returns the absolute index of the first element to be displayed in a
@@ -79,7 +79,7 @@ public interface Pagination {
 	 * 
 	 * @return absolute index of the first element in current page, zero based
 	 */
-	public int getFirst();
+	 int getFirst();
 
 	/**
 	 * Sets the absolute index of the first element to be displayed in a page.
@@ -91,9 +91,9 @@ public interface Pagination {
 	 *             if first is not less than absolute data size, 0 always
 	 *             allowed
 	 */
-	public void setFirst(final int first);
+	 void setFirst(final int first);
 
-	public int getPageSize();
+	 int getPageSize();
 
 	/**
 	 * Sets the number of items to be displayed on a page.
@@ -103,5 +103,5 @@ public interface Pagination {
 	 * @throws IllegalArgumentException
 	 *             if page size is &lt;= 0
 	 */
-	public void setPageSize(final int pageSize);
+	 void setPageSize(final int pageSize);
 }

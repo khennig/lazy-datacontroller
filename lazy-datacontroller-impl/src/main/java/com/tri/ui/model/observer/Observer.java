@@ -10,6 +10,6 @@ public interface Observer {
 	/**
 	 * Invoked when a change event occurs.
 	 */
-	public void update(ChangeEvent event);
+	void update(ChangeEvent event);
 
 }
